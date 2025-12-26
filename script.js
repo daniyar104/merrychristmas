@@ -2,7 +2,27 @@ document.addEventListener('DOMContentLoaded', () => {
     initSnow();
     initScrollAnimations();
     initScratchCard();
+    setRandomWish();
 });
+
+const WISHES = [
+    "В новом году тебя ждет<br>неожиданное путешествие!",
+    "Тебя ждет головокружительный<br>успех в карьере!",
+    "Встретишь человека,<br>который изменит твою жизнь!",
+    "Твоя заветная мечта<br>скоро сбудется!",
+    "Финансовый поток накроет<br>тебя с головой!",
+    "Жди приятных сюрпризов<br>каждый день!",
+    "Удача будет следовать<br>за тобой по пятам!",
+    "Откроешь в себе<br>новый талант!"
+];
+
+function setRandomWish() {
+    const messageElement = document.getElementById('scratch-message');
+    if (messageElement) {
+        const randomIndex = Math.floor(Math.random() * WISHES.length);
+        messageElement.innerHTML = WISHES[randomIndex];
+    }
+}
 
 function initScratchCard() {
     const canvas = document.getElementById('scratch-canvas');
